@@ -1,32 +1,9 @@
 # student-manager
 (Vietnamese) Rút ngắn code cũng như tuân thủ tài liệu đính kèm.
 
-ClassForm.vue: 145 dòng
+ClassForm.vue: 145 -> 35 dòng
 
-ClassList.vue: 223 dòng
-
-StudentForm.vue: 182 dòng
-
-StudentList.vue: 310 dòng
-
-index.js: 44 dòng
-
-ClassService.js: 29 dòng
-
-classList.js: 9 dòng
-
-seedData.js: 55 dòng
-
-App.vue: 91 dòng
-
-main.js: 10 dòng
-
-
-Sau cập nhật:
-
-ClassForm.vue: 35 dòng
-
-ClassList.vue: 31 dòng
+ClassList.vue: 223 -> 31 dòng
 
 ClassTable.vue: 25 dòng
 
@@ -34,9 +11,9 @@ PaginationControls.vue: 13 dòng
 
 StudentFilter.vue: 26 dòng
 
-StudentForm.vue: 37 dòng
+StudentForm.vue: 182 -> 25 dòng
 
-StudentList.vue: 31 dòng
+StudentList.vue: 310 -> 37 dòng
 
 StudentTable.vue: 33 dòng
 
@@ -56,11 +33,12 @@ ClassService.js: 29 dòng
 
 classList.js: 9 dòng
 
-seedData.js: 51 dòng
+seedData.js: 55 dòng but it's just data
 
-App.vue: 23 dòng
+App.vue: 91 -> 23 dòng
 
 main.js: 10 dòng
+
 
 
 This template should help get you started developing with Vue 3 in Vite.
