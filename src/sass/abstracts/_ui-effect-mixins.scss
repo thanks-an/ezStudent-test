@@ -1,0 +1,36 @@
+// ==========================================================================
+// TEXT & EFFECT MIXINS
+// ==========================================================================
+
+// Card
+@mixin card() {
+  background-color: $bg-primary;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  border: 1px solid $border-light;
+}
+
+// Text Truncate
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Text Gradient
+@mixin text-gradient($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Hover Lift Effect
+@mixin hover-lift() {
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}

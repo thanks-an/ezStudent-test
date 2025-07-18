@@ -1,0 +1,44 @@
+// ==========================================================================
+// TABLE STRUCTURE
+// ==========================================================================
+
+.table {
+  &__container {
+    overflow-x: auto;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+  }
+
+  &__data {
+    width: 100%;
+    border-collapse: collapse;
+    background: $bg-primary;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    th,
+    td {
+      padding: spacing(3);
+      text-align: left;
+      border-bottom: 1px solid $border-light;
+      font-size: $font-size-sm;
+    }
+
+    th {
+      background: $bg-light;
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      font-size: $font-size-sm;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      color: $text-primary;
+
+      &:last-child {
+        white-space: nowrap;
+      }
+    }
+  }
+}

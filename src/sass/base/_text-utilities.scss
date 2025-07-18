@@ -1,0 +1,60 @@
+// ==========================================================================
+// TEXT UTILITIES
+// ==========================================================================
+
+// Text Colors
+// --------------------------------------------------------------------------
+.text-muted {
+  color: $text-muted !important;
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+.text-danger {
+  color: $danger !important;
+}
+
+.text-success {
+  color: $success !important;
+}
+
+// Text Alignment
+// --------------------------------------------------------------------------
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+// Font Weights
+// --------------------------------------------------------------------------
+.font-weight-normal {
+  font-weight: $font-weight-normal !important;
+}
+
+.font-weight-medium {
+  font-weight: $font-weight-medium !important;
+}
+
+.font-weight-semibold {
+  font-weight: $font-weight-semibold !important;
+}
+
+.font-weight-bold {
+  font-weight: $font-weight-bold !important;
+}
+
+// Small Text
+// --------------------------------------------------------------------------
+small,
+.small {
+  font-size: $font-size-xs;
+}

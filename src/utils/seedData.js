@@ -1,13 +1,27 @@
+/**
+ * Seed data utility for populating initial data
+ * ES5-compatible implementation
+ */
+
+'use strict'
+
 import { saveClass } from '../services/ClassService.js'
 import { v4 as uuidv4 } from 'uuid'
 
+/**
+ * Seeds the application with initial class and student data
+ */
 export function seedData() {
-  const existingClasses = localStorage.getItem('classes')
-  if (existingClasses && JSON.parse(existingClasses).length > 0) return
+  var existingClasses = localStorage.getItem('classes')
+  if (existingClasses && JSON.parse(existingClasses).length > 0) {
+    return
+  }
 
-  const lop10Id = uuidv4(), lop11Id = uuidv4(), lop12Id = uuidv4()
+  var lop10Id = uuidv4()
+  var lop11Id = uuidv4()
+  var lop12Id = uuidv4()
 
-  const sampleClasses = [
+  var sampleClasses = [
     { id: lop10Id, name: 'Lớp 10', parentId: null },
     { id: uuidv4(), name: 'Lớp 10A', parentId: lop10Id },
     { id: uuidv4(), name: 'Lớp 10B', parentId: lop10Id },
@@ -22,9 +36,12 @@ export function seedData() {
     { id: uuidv4(), name: 'Lớp 12C', parentId: lop12Id },
   ]
 
-  sampleClasses.forEach(cls => saveClass(cls))
+  // Use traditional for loop instead of forEach for ES5 compatibility
+  for (var i = 0; i < sampleClasses.length; i++) {
+    saveClass(sampleClasses[i])
+  }
 
-  const sampleStudents = [
+  var sampleStudents = [
     { id: uuidv4(), name: 'Nguyễn Văn An', dob: '2008-01-15', class: 'Lớp 10A' },
     { id: uuidv4(), name: 'Trần Thị Bình', dob: '2008-02-20', class: 'Lớp 10A' },
     { id: uuidv4(), name: 'Lê Văn Cường', dob: '2008-03-10', class: 'Lớp 10A' },
@@ -49,5 +66,8 @@ export function seedData() {
     { id: uuidv4(), name: 'Tạ Thị Yến', dob: '2006-02-15', class: 'Lớp 12A' },
     { id: uuidv4(), name: 'Mai Văn Zin', dob: '2006-03-28', class: 'Lớp 12A' },
     { id: uuidv4(), name: 'Lý Thị Ánh', dob: '2006-04-10', class: 'Lớp 12A' },
-    { id: uuidv4(), name: 'Từ Văn Bảo', dob: '2006-05-22', class: 'Lớp 12A' }]; localStorage.setItem('students', JSON.stringify(sampleStudents))
+    { id: uuidv4(), name: 'Từ Văn Bảo', dob: '2006-05-22', class: 'Lớp 12A' },
+  ]
+
+  localStorage.setItem('students', JSON.stringify(sampleStudents))
 }

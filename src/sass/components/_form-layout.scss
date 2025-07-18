@@ -1,0 +1,62 @@
+// ==========================================================================
+// FORM CONTAINER & LAYOUT
+// ==========================================================================
+
+.form {
+  &__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: spacing(6);
+    background: $bg-primary;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: spacing(6);
+    color: $text-primary;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(5);
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__actions {
+    @include flex-between();
+    gap: spacing(3);
+    margin-top: spacing(6);
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Form row
+.form-row {
+  display: flex;
+  gap: spacing(4);
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    gap: spacing(3);
+  }
+
+  .form__group {
+    flex: 1;
+  }
+}

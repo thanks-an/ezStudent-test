@@ -1,0 +1,51 @@
+// ==========================================================================
+// FORM CONTROLS
+// ==========================================================================
+
+.form {
+  &__label {
+    font-weight: $font-weight-semibold;
+    margin-bottom: spacing(2);
+    color: $text-primary;
+    font-size: $font-size-sm;
+
+    &--required {
+      &::after {
+        content: ' *';
+        color: $danger;
+      }
+    }
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    @include form-control();
+
+    &--error {
+      border-color: $danger;
+
+      &:focus {
+        border-color: $danger;
+        box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
+      }
+    }
+  }
+
+  &__textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  &__error {
+    color: $danger;
+    font-size: $font-size-xs;
+    margin-top: spacing(1);
+  }
+
+  &__help {
+    color: $text-muted;
+    font-size: $font-size-xs;
+    margin-top: spacing(1);
+  }
+}

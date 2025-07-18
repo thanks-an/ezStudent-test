@@ -1,0 +1,25 @@
+// ==========================================================================
+// MEDIA QUERY MIXINS
+// ==========================================================================
+
+// Media Breakpoint Up
+// --------------------------------------------------------------------------
+@mixin media-breakpoint-up($name) {
+  $min: map-get($breakpoints, $name);
+  @if $min != 0 {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media Breakpoint Down
+// --------------------------------------------------------------------------
+@mixin media-breakpoint-down($name) {
+  $max: map-get($breakpoints, $name) - 0.02;
+  @media (max-width: $max) {
+    @content;
+  }
+}

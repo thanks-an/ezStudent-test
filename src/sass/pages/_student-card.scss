@@ -1,0 +1,39 @@
+// ==========================================================================
+// STUDENT CARD COMPONENT
+// ==========================================================================
+
+.student {
+  &__card {
+    @include card();
+    padding: spacing(4);
+    margin-bottom: spacing(4);
+    transition: $transition-base;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__info {
+    @include flex-between();
+    margin-bottom: spacing(3);
+  }
+
+  &__name {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: spacing(1);
+  }
+
+  &__details {
+    color: $text-muted;
+    font-size: $font-size-sm;
+  }
+
+  &__actions {
+    @include flex-start();
+    gap: spacing(3);
+  }
+}

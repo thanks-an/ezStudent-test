@@ -1,58 +1,15 @@
-// ES5-friendly ClassService
-var CLASS_KEY = 'classes'
+/**
+ * ES5-compatible ClassService - Main Entry Point
+ * Provides CRUD operations for class management
+ */
 
-function notifyClassChange() {
-  window.dispatchEvent(new CustomEvent('classListChanged'))
-}
+'use strict'
 
-export function getClasses() {
-  var data = localStorage.getItem(CLASS_KEY)
-  return data ? JSON.parse(data) : []
-}
+// Import data access functions
+import { getClasses, getClassById } from './classDataAccess'
 
-export function getClassById(id) {
-  var classes = getClasses()
-  for (var i = 0; i < classes.length; i++) {
-    if (classes[i].id === id) {
-      return classes[i]
-    }
-  }
-  return null
-}
+// Import persistence functions
+import { saveClass, updateClass, deleteClass } from './classPersistence'
 
-export function saveClass(newClass) {
-  var classes = getClasses()
-  classes.push(newClass)
-  localStorage.setItem(CLASS_KEY, JSON.stringify(classes))
-  notifyClassChange()
-}
-
-export function updateClass(updatedClass) {
-  var classes = getClasses()
-  var updatedClasses = []
-
-  for (var i = 0; i < classes.length; i++) {
-    if (classes[i].id === updatedClass.id) {
-      updatedClasses.push(updatedClass)
-    } else {
-      updatedClasses.push(classes[i])
-    }
-  }
-
-  localStorage.setItem(CLASS_KEY, JSON.stringify(updatedClasses))
-  notifyClassChange()
-}
-
-export function deleteClass(id) {
-  var classes = getClasses()
-  var filteredClasses = []
-
-  for (var i = 0; i < classes.length; i++) {
-    if (classes[i].id !== id) {
-      filteredClasses.push(classes[i])
-    }
-  }
-
-  localStorage.setItem(CLASS_KEY, JSON.stringify(filteredClasses))
-  notifyClassChange()
-}
+// Re-export all functions for backward compatibility
+export { getClasses, getClassById, saveClass, updateClass, deleteClass }

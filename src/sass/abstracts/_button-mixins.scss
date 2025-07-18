@@ -1,0 +1,58 @@
+// ==========================================================================
+// BUTTON MIXINS
+// ==========================================================================
+
+/// Creates a button variant with background, text color and hover states
+/// @access public
+/// @param {Color} $background - Button background color
+/// @param {Color} $color [$white] - Button text color
+/// @param {Color} $hover-background [darken($background, 10%)] - Hover background color
+/// @example scss - Usage
+///   .btn-primary {
+///     @include button-variant($primary);
+///   }
+@mixin button-variant($background, $color: $white, $hover-background: darken($background, 10%)) {
+  background-color: $background;
+  color: $color;
+  border: 1px solid $background;
+
+  &:hover,
+  &:focus {
+    background-color: $hover-background;
+    border-color: $hover-background;
+    color: $color;
+  }
+
+  &:disabled {
+    background-color: lighten($background, 20%);
+    border-color: lighten($background, 20%);
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/// Creates an outline button variant with transparent background
+/// @access public
+/// @param {Color} $color - Button border and text color
+/// @example scss - Usage
+///   .btn-outline-primary {
+///     @include button-outline-variant($primary);
+///   }
+@mixin button-outline-variant($color) {
+  background-color: transparent;
+  color: $color;
+  border: 1px solid $color;
+
+  &:hover,
+  &:focus {
+    background-color: $color;
+    color: $white;
+  }
+
+  &:disabled {
+    color: lighten($color, 20%);
+    border-color: lighten($color, 20%);
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

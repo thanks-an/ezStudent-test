@@ -1,0 +1,30 @@
+/* ==========================================================================
+   STUDENT LIST LAYOUT
+   ========================================================================== */
+
+.student-list {
+  padding: 0;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}

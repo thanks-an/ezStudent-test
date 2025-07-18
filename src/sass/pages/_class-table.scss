@@ -1,0 +1,23 @@
+// ==========================================================================
+// CLASS TABLE STYLES
+// ==========================================================================
+
+.class-list {
+  padding: 0;
+}
+
+.class-table {
+  .table__data {
+    th:first-child,
+    td:first-child {
+      width: 60px;
+      text-align: center;
+    }
+
+    th:last-child,
+    td:last-child {
+      width: 120px;
+      text-align: center;
+    }
+  }
+}

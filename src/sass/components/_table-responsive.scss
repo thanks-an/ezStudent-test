@@ -1,0 +1,15 @@
+// ==========================================================================
+// TABLE RESPONSIVE
+// ==========================================================================
+
+// Responsive table
+@include media-breakpoint-down(md) {
+  .table__data {
+    font-size: $font-size-xs;
+
+    th,
+    td {
+      padding: spacing(2);
+    }
+  }
+}

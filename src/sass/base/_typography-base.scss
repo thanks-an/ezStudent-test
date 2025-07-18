@@ -1,0 +1,58 @@
+// ==========================================================================
+// BASE TYPOGRAPHY
+// ==========================================================================
+
+// Body Typography
+// --------------------------------------------------------------------------
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: $text-primary;
+}
+
+// Paragraphs
+// --------------------------------------------------------------------------
+p {
+  margin-bottom: spacing(4);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+// --------------------------------------------------------------------------
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover,
+  &:focus {
+    color: $primary-hover;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+// Code Elements
+// --------------------------------------------------------------------------
+code,
+kbd,
+pre,
+samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 1em;
+}
+
+code {
+  font-size: $font-size-xs;
+  color: $danger;
+  word-wrap: break-word;
+}

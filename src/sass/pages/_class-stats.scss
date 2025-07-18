@@ -1,0 +1,31 @@
+// ==========================================================================
+// CLASS STATS COMPONENT
+// ==========================================================================
+
+.class {
+  &__stats {
+    @include flex-start();
+    gap: spacing(4);
+    margin-top: spacing(3);
+    padding-top: spacing(3);
+    border-top: 1px solid $border-light;
+  }
+
+  &__stat {
+    text-align: center;
+
+    &__number {
+      display: block;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $primary;
+    }
+
+    &__label {
+      font-size: $font-size-xs;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+}

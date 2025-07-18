@@ -1,0 +1,23 @@
+// ==========================================================================
+// BUTTON SIZES & MODIFIERS
+// ==========================================================================
+
+.btn {
+  // Small button
+  &--sm {
+    padding: spacing(1) spacing(3);
+    font-size: $font-size-xs;
+  }
+
+  // Large button
+  &--lg {
+    padding: spacing(3) spacing(5);
+    font-size: $font-size-base;
+  }
+
+  // Block button
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}

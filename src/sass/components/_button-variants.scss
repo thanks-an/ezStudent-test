@@ -1,0 +1,25 @@
+// ==========================================================================
+// BUTTON VARIANTS
+// ==========================================================================
+
+.btn {
+  // Primary button
+  &--primary {
+    @include button-variant($primary);
+  }
+
+  // Outline button
+  &--outline {
+    @include button-outline-variant($primary);
+  }
+
+  // Danger button
+  &--danger {
+    @include button-variant($danger);
+  }
+
+  // Success button
+  &--success {
+    @include button-variant($success);
+  }
+}

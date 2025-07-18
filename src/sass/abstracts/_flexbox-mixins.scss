@@ -1,0 +1,39 @@
+// ==========================================================================
+// FLEXBOX MIXINS
+// ==========================================================================
+
+/// Centers content using flexbox
+/// @access public
+/// @example scss - Usage
+///   .centered-element {
+///     @include flex-center;
+///   }
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/// Aligns items with space between using flexbox
+/// @access public
+/// @example scss - Usage
+///   .header {
+///     @include flex-between;
+///   }
+@mixin flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/// Aligns items to start using flexbox
+/// @access public
+/// @example scss - Usage
+///   .navigation {
+///     @include flex-start;
+///   }
+@mixin flex-start() {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

@@ -1,0 +1,61 @@
+// ==========================================================================
+// ELEMENT RESET
+// ==========================================================================
+
+// Reset lists
+ul,
+ol {
+  list-style: none;
+}
+
+// Reset forms
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+// Reset links
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+// Reset images
+img {
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+// Reset tables
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  text-align: inherit;
+}

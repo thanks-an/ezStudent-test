@@ -1,0 +1,19 @@
+// ==========================================================================
+// STUDENT TABLE STYLES
+// ==========================================================================
+
+.student-table {
+  .table__data {
+    th:first-child,
+    td:first-child {
+      width: 60px;
+      text-align: center;
+    }
+
+    th:last-child,
+    td:last-child {
+      width: 120px;
+      text-align: center;
+    }
+  }
+}

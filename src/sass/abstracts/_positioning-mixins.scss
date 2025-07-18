@@ -1,0 +1,32 @@
+// ==========================================================================
+// POSITIONING MIXINS
+// ==========================================================================
+
+/// Centers element absolutely
+/// @access public
+/// @example scss - Usage
+///   .modal {
+///     @include absolute-center;
+///   }
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/// Micro clearfix hack for clearing floats
+/// @author Nicolas Gallagher
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+/// @access public
+/// @example scss - Usage
+///   .container {
+///     @include clearfix;
+///   }
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
