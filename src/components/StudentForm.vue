@@ -1,23 +1,33 @@
 <template>
-  <div class="form-container">
-    <h3 class="form-title">{{ student.id ? 'SỬA HỌC SINH' : 'THÊM HỌC SINH' }}</h3>
-    <div class="form-content">
-      <div class="form-group">
-        <label class="form-label">Họ và tên*</label>
-        <input v-model="student.name" type="text" class="form-input" required placeholder="Nhập họ và tên" />
+  <div class="form__container">
+    <h3 class="form__title">{{ student.id ? 'SỬA HỌC SINH' : 'THÊM HỌC SINH' }}</h3>
+    <div class="form__content">
+      <div class="form__group">
+        <label class="form__label form__label--required">Họ và tên</label>
+        <input
+          v-model="student.name"
+          type="text"
+          class="form__input"
+          required
+          placeholder="Nhập họ và tên"
+        />
       </div>
-      <div class="form-group">
-        <label class="form-label">Ngày sinh</label>
-        <input v-model="student.dob" type="date" class="form-input" />
+      <div class="form__group">
+        <label class="form__label">Ngày sinh</label>
+        <input v-model="student.dob" type="date" class="form__input" />
       </div>
-      <div class="form-group">
-        <label class="form-label">Lớp</label>
-        <select v-model="student.class" class="form-select">
+      <div class="form__group">
+        <label class="form__label">Lớp</label>
+        <select v-model="student.class" class="form__select">
           <option value="">Chọn lớp</option>
-          <option v-for="cls in flatClassList" :key="cls.id" :value="cls.name">{{ cls.displayName }}</option>
+          <option v-for="cls in flatClassList" :key="cls.id" :value="cls.name">
+            {{ cls.displayName }}
+          </option>
         </select>
       </div>
-      <button @click="saveStudent" class="btn btn-primary">Lưu</button>
+      <div class="form__actions">
+        <button @click="saveStudent" class="btn btn--primary">Lưu</button>
+      </div>
     </div>
   </div>
 </template>
@@ -30,11 +40,17 @@ export default {
   setup() {
     const { student, flatClassList, loadData, loadEditingStudent, saveStudent } = useStudentForm()
 
-    onMounted(() => { loadData(); loadEditingStudent(); window.addEventListener('classListChanged', loadData) })
+    onMounted(() => {
+      loadData()
+      loadEditingStudent()
+      window.addEventListener('classListChanged', loadData)
+    })
 
     return { student, flatClassList, saveStudent }
-  }
+  },
 }
 </script>
 
-<style src="@/assets/form-styles.css"></style>
+<style lang="scss">
+@import '@/sass/main.scss';
+</style>

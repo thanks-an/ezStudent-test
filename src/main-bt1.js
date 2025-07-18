@@ -6,9 +6,8 @@ import router from './router'
 import { seedData } from './utils/seedData.js'
 import { setAppConfig } from './config/appConfig.js'
 
-// Cấu hình dựa trên môi trường build
-const appMode = typeof __APP_MODE__ !== 'undefined' ? __APP_MODE__ : 'BT2'
-setAppConfig(appMode)
+// Cấu hình cho bài tập 1 (chỉ quản lý học sinh)
+setAppConfig('BT1')
 
 // Seed dữ liệu mẫu
 seedData()

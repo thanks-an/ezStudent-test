@@ -1,35 +1,58 @@
-const CLASS_KEY = 'classes';
+// ES5-friendly ClassService
+var CLASS_KEY = 'classes'
 
 function notifyClassChange() {
-  window.dispatchEvent(new CustomEvent('classListChanged'));
+  window.dispatchEvent(new CustomEvent('classListChanged'))
 }
 
 export function getClasses() {
-  const data = localStorage.getItem(CLASS_KEY);
-  return data ? JSON.parse(data) : [];
+  var data = localStorage.getItem(CLASS_KEY)
+  return data ? JSON.parse(data) : []
 }
 
 export function getClassById(id) {
-  return getClasses().find(cls => cls.id === id);
+  var classes = getClasses()
+  for (var i = 0; i < classes.length; i++) {
+    if (classes[i].id === id) {
+      return classes[i]
+    }
+  }
+  return null
 }
 
 export function saveClass(newClass) {
-  const classes = getClasses();
-  classes.push(newClass);
-  localStorage.setItem(CLASS_KEY, JSON.stringify(classes));
-  notifyClassChange();
+  var classes = getClasses()
+  classes.push(newClass)
+  localStorage.setItem(CLASS_KEY, JSON.stringify(classes))
+  notifyClassChange()
 }
 
 export function updateClass(updatedClass) {
-  const classes = getClasses().map(cls =>
-    cls.id === updatedClass.id ? updatedClass : cls
-  );
-  localStorage.setItem(CLASS_KEY, JSON.stringify(classes));
-  notifyClassChange();
+  var classes = getClasses()
+  var updatedClasses = []
+
+  for (var i = 0; i < classes.length; i++) {
+    if (classes[i].id === updatedClass.id) {
+      updatedClasses.push(updatedClass)
+    } else {
+      updatedClasses.push(classes[i])
+    }
+  }
+
+  localStorage.setItem(CLASS_KEY, JSON.stringify(updatedClasses))
+  notifyClassChange()
 }
 
 export function deleteClass(id) {
-  const classes = getClasses().filter(cls => cls.id !== id);
-  localStorage.setItem(CLASS_KEY, JSON.stringify(classes));
-  notifyClassChange();
+  var classes = getClasses()
+  var filteredClasses = []
+
+  for (var i = 0; i < classes.length; i++) {
+    if (classes[i].id !== id) {
+      filteredClasses.push(classes[i])
+    }
+  }
+
+  localStorage.setItem(CLASS_KEY, JSON.stringify(filteredClasses))
+  notifyClassChange()
 }

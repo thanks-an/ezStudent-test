@@ -1,0 +1,62 @@
+// ==========================================================================
+// PAGINATION
+// ==========================================================================
+
+.pagination {
+  @include flex-center();
+  gap: spacing(4);
+  margin-top: spacing(5);
+
+  &__btn {
+    padding: spacing(2) spacing(3);
+    border: 1px solid $border-color;
+    background: $bg-primary;
+    cursor: pointer;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    transition: $transition-base;
+
+    &:hover:not(&--disabled) {
+      background-color: $bg-light;
+      border-color: $primary;
+      color: $primary;
+    }
+
+    &--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    &--active {
+      background-color: $primary;
+      border-color: $primary;
+      color: $white;
+    }
+  }
+
+  &__info {
+    font-size: $font-size-sm;
+    color: $text-muted;
+    font-weight: $font-weight-medium;
+  }
+
+  &__numbers {
+    @include flex-center();
+    gap: spacing(1);
+  }
+}
+
+// Responsive pagination
+@include media-breakpoint-down(sm) {
+  .pagination {
+    flex-direction: column;
+    gap: spacing(3);
+
+    &__numbers {
+      order: -1;
+    }
+  }
+}

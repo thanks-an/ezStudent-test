@@ -1,0 +1,40 @@
+// ==========================================================================
+// HEADER
+// ==========================================================================
+
+.app {
+  font-family: $font-family-secondary;
+  font-size: $font-size-sm;
+  background-color: $bg-light;
+  min-height: 100vh;
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $container-padding;
+  }
+
+  &__header {
+    @include flex-between();
+    margin-bottom: spacing(6);
+    padding: spacing(4);
+    background: $bg-primary;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin: 0;
+    color: $text-primary;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__main {
+    background: $bg-primary;
+    border-radius: $border-radius;
+    padding: spacing(6);
+    box-shadow: $shadow;
+    min-height: 500px;
+  }
+}

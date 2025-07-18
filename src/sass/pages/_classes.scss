@@ -1,0 +1,90 @@
+// ==========================================================================
+// CLASSES PAGE
+// ==========================================================================
+
+.class-list {
+  padding: 0;
+}
+
+// Class specific components
+.class {
+  &__card {
+    @include card();
+    padding: spacing(4);
+    margin-bottom: spacing(4);
+    transition: $transition-base;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__header {
+    @include flex-between();
+    margin-bottom: spacing(3);
+  }
+
+  &__name {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: spacing(1);
+  }
+
+  &__info {
+    color: $text-muted;
+    font-size: $font-size-sm;
+
+    &__item {
+      margin-bottom: spacing(1);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__stats {
+    @include flex-start();
+    gap: spacing(4);
+    margin-top: spacing(3);
+    padding-top: spacing(3);
+    border-top: 1px solid $border-light;
+  }
+
+  &__stat {
+    text-align: center;
+
+    &__number {
+      display: block;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $primary;
+    }
+
+    &__label {
+      font-size: $font-size-xs;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+}
+
+// Class table specific styles
+.class-table {
+  .table__data {
+    th:first-child,
+    td:first-child {
+      width: 60px;
+      text-align: center;
+    }
+
+    th:last-child,
+    td:last-child {
+      width: 120px;
+      text-align: center;
+    }
+  }
+}

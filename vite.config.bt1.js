@@ -13,6 +13,9 @@ export default defineConfig({
     },
   },
   define: {
-    __APP_MODE__: JSON.stringify('BT2'),
+    __APP_MODE__: JSON.stringify('BT1'),
+  },
+  server: {
+    port: 5174, // Port khác để có thể chạy đồng thời
   },
 })

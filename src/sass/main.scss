@@ -1,0 +1,41 @@
+// ==========================================================================
+// MAIN STYLESHEET
+// ==========================================================================
+// This is the main SCSS file that imports all other stylesheets
+// following the Sass Guidelines architecture
+// https://sass-guidelin.es/
+
+// 1. ABSTRACTS
+// Configuration and helpers
+// --------------------------------------------------------------------------
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+
+// 2. BASE
+// Reset, typography, global styles
+// --------------------------------------------------------------------------
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// 3. LAYOUT
+// Global layout styles
+// --------------------------------------------------------------------------
+@import 'layout/header';
+@import 'layout/navigation';
+
+// 4. COMPONENTS
+// Reusable UI components
+// --------------------------------------------------------------------------
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/tables';
+@import 'components/pagination';
+@import 'components/filters';
+
+// 5. PAGES
+// Page-specific styles
+// --------------------------------------------------------------------------
+@import 'pages/students';
+@import 'pages/classes';

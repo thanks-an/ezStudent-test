@@ -1,0 +1,132 @@
+// ==========================================================================
+// FORMS
+// ==========================================================================
+
+.form {
+  &__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: spacing(6);
+    background: $bg-primary;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: spacing(6);
+    color: $text-primary;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(5);
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-weight: $font-weight-semibold;
+    margin-bottom: spacing(2);
+    color: $text-primary;
+    font-size: $font-size-sm;
+
+    &--required {
+      &::after {
+        content: ' *';
+        color: $danger;
+      }
+    }
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    @include form-control();
+
+    &--error {
+      border-color: $danger;
+
+      &:focus {
+        border-color: $danger;
+        box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
+      }
+    }
+  }
+
+  &__select {
+    @include form-control();
+
+    // Hide default browser arrow
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    // Add custom arrow
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right spacing(2) center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: spacing(8);
+
+    &:focus {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23007bff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    }
+
+    // IE10+ specific
+    &::-ms-expand {
+      display: none;
+    }
+  }
+  &__textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  &__error {
+    color: $danger;
+    font-size: $font-size-xs;
+    margin-top: spacing(1);
+  }
+
+  &__help {
+    color: $text-muted;
+    font-size: $font-size-xs;
+    margin-top: spacing(1);
+  }
+
+  &__actions {
+    @include flex-between();
+    gap: spacing(3);
+    margin-top: spacing(6);
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Form row
+.form-row {
+  display: flex;
+  gap: spacing(4);
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    gap: spacing(3);
+  }
+
+  .form__group {
+    flex: 1;
+  }
+}

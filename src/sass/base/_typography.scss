@@ -1,0 +1,154 @@
+// ==========================================================================
+// TYPOGRAPHY
+// ==========================================================================
+
+// Base Typography
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: $text-primary;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: spacing(2);
+  font-weight: $font-weight-semibold;
+  line-height: 1.2;
+  color: $text-primary;
+}
+
+h1,
+.h1 {
+  font-size: $font-size-2xl;
+}
+
+h2,
+.h2 {
+  font-size: $font-size-xl;
+}
+
+h3,
+.h3 {
+  font-size: $font-size-lg;
+}
+
+h4,
+.h4 {
+  font-size: $font-size-base;
+}
+
+h5,
+.h5 {
+  font-size: $font-size-sm;
+}
+
+h6,
+.h6 {
+  font-size: $font-size-xs;
+}
+
+// Paragraphs
+p {
+  margin-bottom: spacing(4);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover,
+  &:focus {
+    color: $primary-hover;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+// Text utilities
+.text-muted {
+  color: $text-muted !important;
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+.text-danger {
+  color: $danger !important;
+}
+
+.text-success {
+  color: $success !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.font-weight-normal {
+  font-weight: $font-weight-normal !important;
+}
+
+.font-weight-medium {
+  font-weight: $font-weight-medium !important;
+}
+
+.font-weight-semibold {
+  font-weight: $font-weight-semibold !important;
+}
+
+.font-weight-bold {
+  font-weight: $font-weight-bold !important;
+}
+
+// Small text
+small,
+.small {
+  font-size: $font-size-xs;
+}
+
+// Code
+code,
+kbd,
+pre,
+samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 1em;
+}
+
+code {
+  font-size: $font-size-xs;
+  color: $danger;
+  word-wrap: break-word;
+}

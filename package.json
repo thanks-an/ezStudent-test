@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:bt2": "vite",
+    "dev:bt1": "vite --config vite.config.bt1.js",
     "build": "vite build",
+    "build:bt1": "vite build --config vite.config.bt1.js",
+    "build:bt2": "vite build",
     "preview": "vite preview",
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix",

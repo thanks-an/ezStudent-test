@@ -1,0 +1,28 @@
+// ==========================================================================
+// NAVIGATION
+// ==========================================================================
+
+.nav {
+  @include flex-start();
+  gap: spacing(6);
+
+  &__link {
+    text-decoration: none;
+    color: $text-muted;
+    font-weight: $font-weight-medium;
+    padding: spacing(2) spacing(4);
+    border-radius: $border-radius-sm;
+    transition: $transition-base;
+
+    &:hover,
+    &--active {
+      color: $primary;
+      background: $bg-light;
+      text-decoration: none;
+    }
+
+    &--active {
+      font-weight: $font-weight-semibold;
+    }
+  }
+}

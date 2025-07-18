@@ -17,6 +17,7 @@ export default defineConfig([
     languageOptions: {
       globals: {
         ...globals.browser,
+        __BT1_MODE__: 'readonly',
       },
     },
   },

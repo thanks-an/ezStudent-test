@@ -1,0 +1,54 @@
+// ==========================================================================
+// FUNCTIONS
+// ==========================================================================
+
+// Spacing Function
+// --------------------------------------------------------------------------
+@function spacing($key) {
+  @return map-get($spacers, $key);
+}
+
+// Color Functions
+// --------------------------------------------------------------------------
+@function color-contrast($background) {
+  $color-brightness: round(
+    (red($background) * 299) + (green($background) * 587) + (blue($background) * 114) / 1000
+  );
+  $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+
+  @if abs($color-brightness) < ($light-color/2) {
+    @return white;
+  } @else {
+    @return black;
+  }
+}
+
+// Strip Unit Function
+// --------------------------------------------------------------------------
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Convert px to rem
+// --------------------------------------------------------------------------
+@function rem($pixels, $context: $font-size-base) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+// Convert px to em
+// --------------------------------------------------------------------------
+@function em($pixels, $context: $font-size-base) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1em;
+}

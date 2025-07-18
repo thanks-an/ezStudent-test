@@ -1,0 +1,42 @@
+// ==========================================================================
+// BASE
+// ==========================================================================
+
+// Main app container
+#app {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-secondary;
+  line-height: $line-height-base;
+  background-color: $bg-light;
+}
+
+// Responsive utilities
+@include media-breakpoint-down(md) {
+  .app-container {
+    max-width: 100% !important;
+    padding: 0 spacing(2) !important;
+  }
+
+  .form-content {
+    max-width: 100% !important;
+    padding: spacing(4) !important;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #{$black};
+    --color-background-soft: #{$black-soft};
+    --color-background-mute: #{$black-mute};
+    --color-border: rgba(84, 84, 84, 0.48);
+    --color-border-hover: rgba(84, 84, 84, 0.65);
+    --color-heading: #{$white};
+    --color-text: rgba(235, 235, 235, 0.64);
+  }
+}

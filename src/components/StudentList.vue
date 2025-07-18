@@ -2,8 +2,18 @@
   <div class="student-list">
     <h2 class="page-title">Học sinh</h2>
     <StudentFilter v-model="selectedClass" :class-options="classOptions" @filter="handleFilter" />
-    <StudentTable :students="paginatedStudents" :offset="(currentPage - 1) * 15" :calculate-age="calculateAge" @delete="deleteStudent" />
-    <PaginationControls :current-page="currentPage" :total-pages="totalPages" @prev="prevPage" @next="nextPage" />
+    <StudentTable
+      :students="paginatedStudents"
+      :offset="(currentPage - 1) * 15"
+      :calculate-age="calculateAge"
+      @delete="deleteStudent"
+    />
+    <PaginationControls
+      :current-page="currentPage"
+      :total-pages="totalPages"
+      @prev="prevPage"
+      @next="nextPage"
+    />
   </div>
 </template>
 
@@ -18,16 +28,48 @@ import PaginationControls from './PaginationControls.vue'
 export default {
   components: { StudentFilter, StudentTable, PaginationControls },
   setup() {
-    const { filtered, selectedClass, classOptions, loadData, filterStudents, deleteStudent, calculateAge } = useStudents()
-    const { currentPage, paginatedItems: paginatedStudents, totalPages, nextPage, prevPage, resetPage } = usePagination(filtered)
+    const {
+      filtered,
+      selectedClass,
+      classOptions,
+      loadData,
+      filterStudents,
+      deleteStudent,
+      calculateAge,
+    } = useStudents()
+    const {
+      currentPage,
+      paginatedItems: paginatedStudents,
+      totalPages,
+      nextPage,
+      prevPage,
+      resetPage,
+    } = usePagination(filtered)
 
-    const handleFilter = () => { filterStudents(); resetPage() }
+    const handleFilter = () => {
+      filterStudents()
+      resetPage()
+    }
 
-    onMounted(() => { loadData(); window.addEventListener('classListChanged', loadData) })
+    onMounted(() => {
+      loadData()
+      window.addEventListener('classListChanged', loadData)
+    })
     onBeforeUnmount(() => window.removeEventListener('classListChanged', loadData))
 
-    return { selectedClass, classOptions, paginatedStudents, currentPage, totalPages, nextPage, prevPage, handleFilter, deleteStudent, calculateAge }
-  }
+    return {
+      selectedClass,
+      classOptions,
+      paginatedStudents,
+      currentPage,
+      totalPages,
+      nextPage,
+      prevPage,
+      handleFilter,
+      deleteStudent,
+      calculateAge,
+    }
+  },
 }
 </script>
 
