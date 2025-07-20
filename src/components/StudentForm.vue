@@ -13,12 +13,12 @@
         />
       </div>
       <div class="form__group">
-        <label class="form__label">Ngày sinh</label>
-        <input v-model="student.dob" type="date" class="form__input" />
+        <label class="form__label form__label--required">Ngày sinh</label>
+        <input v-model="student.dob" type="date" class="form__input" required />
       </div>
       <div class="form__group">
-        <label class="form__label">Lớp</label>
-        <select v-model="student.class" class="form__select">
+        <label class="form__label form__label--required">Lớp</label>
+        <select v-model="student.class" class="form__select" required>
           <option value="">Chọn lớp</option>
           <option v-for="cls in flatClassList" :key="cls.id" :value="cls.name">
             {{ cls.displayName }}
