@@ -2,7 +2,8 @@
 // CLASS FORM OPERATIONS
 // ==========================================================================
 
-import { saveClass, updateClass, getClassById } from '@/services/ClassService'
+import { saveClass, updateClass, getClassById, getClasses } from '@/services/ClassService'
+import { willCreateOrphanedClasses, getOrphanedClassesInfo } from '@/services/classFinder'
 import { v4 as uuidv4 } from 'uuid'
 
 /**
@@ -41,6 +42,27 @@ function saveClassData(classData, isEdit) {
     // Get old class name before updating
     const oldClass = getClassById(classData.id)
     const oldClassName = oldClass ? oldClass.name : null
+
+    // Check if this change will create orphaned classes
+    const allClasses = getClasses()
+    const willCreateOrphans = willCreateOrphanedClasses(classData.id, classData, allClasses)
+
+    if (willCreateOrphans) {
+      const orphanInfo = getOrphanedClassesInfo(classData.id, allClasses)
+      const orphanNames = orphanInfo.names.join(', ')
+      const confirmMessage =
+        'Việc chuyển lớp "' +
+        classData.name +
+        '" thành lớp con sẽ khiến ' +
+        orphanInfo.count +
+        ' lớp con (' +
+        orphanNames +
+        ') trở thành lớp gốc. Bạn có muốn tiếp tục?'
+
+      if (!confirm(confirmMessage)) {
+        return
+      }
+    }
 
     // Update class
     updateClass(classData)

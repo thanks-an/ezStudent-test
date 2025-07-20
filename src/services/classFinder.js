@@ -62,4 +62,46 @@ function findAffectedClassNames(classId, classes) {
   return affectedClassNames
 }
 
-export { findClassById, findChildClasses, findAffectedClassNames }
+/**
+ * Check if a class will become orphaned when parent class changes level
+ * @param {string} parentClassId - The ID of the parent class
+ * @param {Object} newParentData - New data for the parent class
+ * @param {Array} classes - Array of all classes
+ * @returns {boolean} True if children will become orphaned
+ */
+function willCreateOrphanedClasses(parentClassId, newParentData, classes) {
+  // If parent is being assigned a parentId (becoming a child class)
+  if (newParentData.parentId) {
+    var childClasses = findChildClasses(parentClassId, classes)
+    return childClasses.length > 0
+  }
+  return false
+}
+
+/**
+ * Get details about classes that will be affected by parent class level change
+ * @param {string} parentClassId - The ID of the parent class being changed
+ * @param {Array} classes - Array of all classes
+ * @returns {Object} Details about affected classes
+ */
+function getOrphanedClassesInfo(parentClassId, classes) {
+  var childClasses = findChildClasses(parentClassId, classes)
+  var names = []
+  for (var i = 0; i < childClasses.length; i++) {
+    names.push(childClasses[i].name)
+  }
+
+  return {
+    count: childClasses.length,
+    names: names,
+    classes: childClasses,
+  }
+}
+
+export {
+  findClassById,
+  findChildClasses,
+  findAffectedClassNames,
+  willCreateOrphanedClasses,
+  getOrphanedClassesInfo,
+}
